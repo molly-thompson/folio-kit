@@ -1,0 +1,42 @@
+# Local dependencies & build outputs
+node_modules/
+.pnpm-store/
+.output/
+dist/
+build/
+.tanstack/
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Git & CI/CD
+.git/
+.gitignore
+.github/
+
+# IDE, OS, & Editor metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Testing & Coverage
+coverage
+.nyc_output
+__tests__
+
+# Logs & Temporary files
+*.log
+pnpm-debug.log*
+tmp
+temp
+
+# Documentation & Misc
+README.md
+CONVENTIONS.md
+documentation/
+.editorconfig
+.husky/
+components.json

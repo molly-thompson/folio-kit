@@ -1,0 +1,21 @@
+allowBuilds:
+  esbuild: true
+
+# Require provenance & 1day cooldown before installing new version. See https://pnpm.io/supply-chain-security
+minimumReleaseAge: 1440
+minimumReleaseAgeExcludePrune: true
+minimumReleaseAgeIgnoreMissingTime: false
+
+minimumReleaseAgeExclude:
+  - "jsdom@31.0.0"
+
+# Fail if a version has weaker publish trust than earlier releases of the
+# same package, e.g. provenance was dropped.
+trustPolicy: no-downgrade
+# Skip the trust check for versions older than 30 days.
+trustPolicyIgnoreAfter: 43200
+trustPolicyExcludePrune: true
+
+# Already the pnpm 12 defaults; stated so they cannot regress silently
+blockExoticSubdeps: true
+strictDepBuilds: true

@@ -1,0 +1,43 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.6.5/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"includes": ["**/src/**/*", "**/vite.config.ts", "!**/src/routeTree.gen.ts"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"assist": {
+		"enabled": true,
+		"actions": { "source": { "organizeImports": "on" } }
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"preset": "recommended"
+		},
+		"domains": {
+			"react": "recommended",
+			"tailwind": "all"
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
+	"css": {
+		"linter": {
+			"enabled": false
+		},
+		"parser": {
+			"tailwindDirectives": true
+		}
+	}
+}
