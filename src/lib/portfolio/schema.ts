@@ -13,8 +13,34 @@ export const mediaReferenceSchema = z.discriminatedUnion("source", [
 ]);
 export type MediaReference = z.infer<typeof mediaReferenceSchema>;
 
-export const fontReferenceSchema = mediaReferenceSchema;
+const fontPathSchema = z
+	.string()
+	.regex(/^fonts\/(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\.woff2$/);
+
+export const fontReferenceSchema = z.discriminatedUnion("source", [
+	z.object({ source: z.literal("local"), path: fontPathSchema }),
+	z.object({ source: z.literal("storage"), path: fontPathSchema }),
+]);
 export type FontReference = z.infer<typeof fontReferenceSchema>;
+
+const fontWeightSchema = z.union([
+	z.number().int().min(100).max(900),
+	z
+		.tuple([
+			z.number().int().min(100).max(900),
+			z.number().int().min(100).max(900),
+		])
+		.refine(([minimum, maximum]) => minimum <= maximum),
+]);
+
+export const fontFaceSchema = z.object({
+	family: z.string().regex(/^[A-Za-z][A-Za-z0-9 -]{0,63}$/),
+	reference: fontReferenceSchema,
+	format: z.literal("woff2").default("woff2"),
+	weight: fontWeightSchema.default(400),
+	style: z.enum(["normal", "italic"]).default("normal"),
+});
+export type FontFace = z.infer<typeof fontFaceSchema>;
 
 export const linkReferenceSchema = z.discriminatedUnion("type", [
 	z.object({ type: z.literal("internal"), route: staticRouteSchema }),
@@ -131,7 +157,9 @@ export const typographyConfigSchema = z.object({
 	body: z.string().min(1),
 	monospace: z.string().min(1).optional(),
 	scale: z.enum(["compact", "default", "editorial"]).default("default"),
+	fontFaces: z.array(fontFaceSchema).max(24).default([]),
 });
+export type TypographyConfig = z.infer<typeof typographyConfigSchema>;
 
 export const siteSettingsSchema = z.object({
 	siteName: z.string().min(1),

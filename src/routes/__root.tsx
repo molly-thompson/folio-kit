@@ -40,12 +40,27 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
-	const { dataset, theme } = Route.useLoaderData();
+	const { dataset, theme, typography } = Route.useLoaderData();
 	return (
 		<div
 			className="site-frame"
-			style={themeStyleVariables(theme) as React.CSSProperties}
+			style={
+				{
+					...themeStyleVariables(theme),
+					...typography.styleVariables,
+				} as React.CSSProperties
+			}
 		>
+			{typography.preloadHref ? (
+				<link
+					rel="preload"
+					as="font"
+					type="font/woff2"
+					href={typography.preloadHref}
+					crossOrigin="anonymous"
+				/>
+			) : null}
+			{typography.fontFaceCss ? <style>{typography.fontFaceCss}</style> : null}
 			<script
 				src="/theme-init.js"
 				data-default-mode={dataset.settings.theme.defaultMode}

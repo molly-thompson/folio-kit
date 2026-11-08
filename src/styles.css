@@ -1,3 +1,8 @@
+@import "@fontsource-variable/fraunces/wght.css";
+@import "@fontsource-variable/fraunces/wght-italic.css";
+@import "@fontsource-variable/manrope/wght.css";
+@import "@fontsource-variable/jetbrains-mono/wght.css";
+@import "@fontsource-variable/jetbrains-mono/wght-italic.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @import "tw-animate-css";
@@ -43,8 +48,14 @@
 	--chart-4: oklch(0.58 0.14 320);
 	--chart-5: oklch(0.58 0.14 35);
 	--radius: 0.75rem;
-	--font-display: "Fraunces", Georgia, serif;
-	--font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+	--font-display: "Fraunces Variable", "Fraunces", Georgia, serif;
+	--font-body:
+		"Manrope Variable", "Manrope", ui-sans-serif, system-ui, sans-serif;
+	--font-monospace:
+		"JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+	--type-display-size: clamp(2.25rem, 5vw, 4.5rem);
+	--type-body-size: 1rem;
+	--type-line-height: 1.7;
 }
 
 .dark {
@@ -91,6 +102,9 @@
 	min-height: 100vh;
 	background: var(--background);
 	color: var(--foreground);
+	font-family: var(--font-body);
+	font-size: var(--type-body-size);
+	line-height: var(--type-line-height);
 	--background: var(--folio-light-background);
 	--foreground: var(--folio-light-foreground);
 	--card: var(--folio-light-card);
@@ -207,6 +221,7 @@
 @theme inline {
 	--font-sans: var(--font-body);
 	--font-serif: var(--font-display);
+	--font-mono: var(--font-monospace);
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-card: var(--card);
@@ -260,6 +275,8 @@ body {
 	background: var(--background);
 	color: var(--foreground);
 	font-family: var(--font-body);
+	font-size: var(--type-body-size);
+	line-height: var(--type-line-height);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -315,6 +332,7 @@ pre code {
 
 .display-title {
 	font-family: var(--font-display);
+	font-size: var(--type-display-size);
 }
 
 .island-shell {
