@@ -50,7 +50,7 @@ export const sectionSchema = z.object({
 	type: z.string().min(1),
 	variant: z.string().min(1),
 	presentation: sectionPresentationSchema.default({}),
-	content: z.record(z.string(), z.unknown()).default({}),
+	content: z.record(z.string(), z.json()).default({}),
 });
 export type Section = z.infer<typeof sectionSchema>;
 

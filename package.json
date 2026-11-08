@@ -35,6 +35,7 @@
     "coverage": "vitest --coverage"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
     "@t3-oss/env-core": "^0.13.10",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-devtools": "^0.10.14",

@@ -1,12 +1,19 @@
 import { TanStackDevtools } from "@tanstack/react-devtools";
-import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+	createRootRoute,
+	HeadContent,
+	Outlet,
+	Scripts,
+} from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { getPortfolio } from "../lib/portfolio/portfolio";
 
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
+	loader: () => getPortfolio(),
 	head: () => ({
 		meta: [
 			{
@@ -27,19 +34,28 @@ export const Route = createRootRoute({
 			},
 		],
 	}),
+	component: RootComponent,
 	shellComponent: RootDocument,
 });
 
+function RootComponent() {
+	return (
+		<>
+			<Header />
+			<Outlet />
+			<Footer />
+		</>
+	);
+}
+
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" suppressHydrationWarning data-theme="light">
+		<html lang="en" suppressHydrationWarning>
 			<head>
 				<HeadContent />
 			</head>
 			<body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(79,184,178,0.24)]">
-				<Header />
 				{children}
-				<Footer />
 				<TanStackDevtools
 					config={{
 						position: "bottom-right",
