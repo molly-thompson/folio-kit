@@ -87,6 +87,87 @@
 	--chart-5: oklch(0.58 0.14 35);
 }
 
+.site-frame {
+	min-height: 100vh;
+	background: var(--background);
+	color: var(--foreground);
+	--background: var(--folio-light-background);
+	--foreground: var(--folio-light-foreground);
+	--card: var(--folio-light-card);
+	--card-foreground: var(--folio-light-card-foreground);
+	--popover: var(--folio-light-popover);
+	--popover-foreground: var(--folio-light-popover-foreground);
+	--primary: var(--folio-light-primary);
+	--primary-foreground: var(--folio-light-primary-foreground);
+	--secondary: var(--folio-light-secondary);
+	--secondary-foreground: var(--folio-light-secondary-foreground);
+	--muted: var(--folio-light-muted);
+	--muted-foreground: var(--folio-light-muted-foreground);
+	--accent: var(--folio-light-accent);
+	--accent-foreground: var(--folio-light-accent-foreground);
+	--destructive: var(--folio-light-destructive);
+	--destructive-foreground: var(--folio-light-destructive-foreground);
+	--border: var(--folio-light-border);
+	--input: var(--folio-light-input);
+	--ring: var(--folio-light-ring);
+	--surface: var(--folio-light-surface);
+	--surface-muted: var(--folio-light-surface-muted);
+	--interaction: var(--folio-light-interaction);
+	--shadow-color: var(--folio-light-shadow-color);
+	--sidebar: var(--folio-light-sidebar);
+	--sidebar-foreground: var(--folio-light-sidebar-foreground);
+	--sidebar-primary: var(--folio-light-sidebar-primary);
+	--sidebar-primary-foreground: var(--folio-light-sidebar-primary-foreground);
+	--sidebar-accent: var(--folio-light-sidebar-accent);
+	--sidebar-accent-foreground: var(--folio-light-sidebar-accent-foreground);
+	--sidebar-border: var(--folio-light-sidebar-border);
+	--sidebar-ring: var(--folio-light-sidebar-ring);
+	--chart-1: var(--folio-light-chart-1);
+	--chart-2: var(--folio-light-chart-2);
+	--chart-3: var(--folio-light-chart-3);
+	--chart-4: var(--folio-light-chart-4);
+	--chart-5: var(--folio-light-chart-5);
+}
+
+.dark .site-frame {
+	--background: var(--folio-dark-background);
+	--foreground: var(--folio-dark-foreground);
+	--card: var(--folio-dark-card);
+	--card-foreground: var(--folio-dark-card-foreground);
+	--popover: var(--folio-dark-popover);
+	--popover-foreground: var(--folio-dark-popover-foreground);
+	--primary: var(--folio-dark-primary);
+	--primary-foreground: var(--folio-dark-primary-foreground);
+	--secondary: var(--folio-dark-secondary);
+	--secondary-foreground: var(--folio-dark-secondary-foreground);
+	--muted: var(--folio-dark-muted);
+	--muted-foreground: var(--folio-dark-muted-foreground);
+	--accent: var(--folio-dark-accent);
+	--accent-foreground: var(--folio-dark-accent-foreground);
+	--destructive: var(--folio-dark-destructive);
+	--destructive-foreground: var(--folio-dark-destructive-foreground);
+	--border: var(--folio-dark-border);
+	--input: var(--folio-dark-input);
+	--ring: var(--folio-dark-ring);
+	--surface: var(--folio-dark-surface);
+	--surface-muted: var(--folio-dark-surface-muted);
+	--interaction: var(--folio-dark-interaction);
+	--shadow-color: var(--folio-dark-shadow-color);
+	--sidebar: var(--folio-dark-sidebar);
+	--sidebar-foreground: var(--folio-dark-sidebar-foreground);
+	--sidebar-primary: var(--folio-dark-sidebar-primary);
+	--sidebar-primary-foreground: var(--folio-dark-sidebar-primary-foreground);
+	--sidebar-accent: var(--folio-dark-sidebar-accent);
+	--sidebar-accent-foreground: var(--folio-dark-sidebar-accent-foreground);
+	--sidebar-border: var(--folio-dark-sidebar-border);
+	--sidebar-ring: var(--folio-dark-sidebar-ring);
+	--chart-1: var(--folio-dark-chart-1);
+	--chart-2: var(--folio-dark-chart-2);
+	--chart-3: var(--folio-dark-chart-3);
+	--chart-4: var(--folio-dark-chart-4);
+	--chart-5: var(--folio-dark-chart-5);
+}
+
 @theme inline {
 	--font-sans: var(--font-body);
 	--font-serif: var(--font-display);

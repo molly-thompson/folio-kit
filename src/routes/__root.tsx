@@ -9,6 +9,7 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { getPortfolio } from "../lib/portfolio/portfolio";
+import { themeStyleVariables } from "../lib/portfolio/theme-style";
 
 import appCss from "../styles.css?url";
 
@@ -39,12 +40,20 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
+	const { dataset, theme } = Route.useLoaderData();
 	return (
-		<>
-			<Header />
+		<div
+			className="site-frame"
+			style={themeStyleVariables(theme) as React.CSSProperties}
+		>
+			<script
+				src="/theme-init.js"
+				data-default-mode={dataset.settings.theme.defaultMode}
+			/>
+			<Header defaultMode={dataset.settings.theme.defaultMode} />
 			<Outlet />
 			<Footer />
-		</>
+		</div>
 	);
 }
 

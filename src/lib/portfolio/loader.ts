@@ -16,6 +16,7 @@ import {
 	socialLinkSchema,
 	technologySchema,
 } from "./schema";
+import { deriveTheme } from "./theme";
 
 export const portfolioLimits = {
 	pages: 4,
@@ -487,12 +488,14 @@ export async function loadPortfolioFromDatabase(
 		throw new PortfolioLoadError("database_invalid");
 	}
 
+	deriveTheme(dataset.settings.theme);
 	return { dataset, source: "database", diagnostics };
 }
 
 export async function loadPortfolioWithConfiguration(
 	url: string | undefined,
 	anonymousKey: string | undefined,
+	fetcher?: typeof fetch,
 ): Promise<PortfolioLoadResult> {
 	if (!url && !anonymousKey) {
 		return fallbackResult("supabase_not_configured");
@@ -502,7 +505,7 @@ export async function loadPortfolioWithConfiguration(
 	}
 
 	try {
-		return await loadPortfolioFromDatabase(url, anonymousKey);
+		return await loadPortfolioFromDatabase(url, anonymousKey, fetcher);
 	} catch (error) {
 		return fallbackResult(
 			error instanceof PortfolioLoadError
