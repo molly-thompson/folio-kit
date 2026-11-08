@@ -110,12 +110,58 @@ export const themeModeConfigSchema = z.object({
 	accentForeground: z.string().optional(),
 });
 
+export const themeTokenNames = [
+	"background",
+	"foreground",
+	"card",
+	"card-foreground",
+	"popover",
+	"popover-foreground",
+	"primary",
+	"primary-foreground",
+	"secondary",
+	"secondary-foreground",
+	"muted",
+	"muted-foreground",
+	"accent",
+	"accent-foreground",
+	"destructive",
+	"destructive-foreground",
+	"border",
+	"input",
+	"ring",
+	"surface",
+	"surface-muted",
+	"interaction",
+	"shadow-color",
+	"sidebar",
+	"sidebar-foreground",
+	"sidebar-primary",
+	"sidebar-primary-foreground",
+	"sidebar-accent",
+	"sidebar-accent-foreground",
+	"sidebar-border",
+	"sidebar-ring",
+	"chart-1",
+	"chart-2",
+	"chart-3",
+	"chart-4",
+	"chart-5",
+] as const;
+
 export const themeConfigSchema = z.object({
 	light: themeModeConfigSchema.optional(),
 	dark: themeModeConfigSchema.optional(),
-	overrides: z.record(z.string(), z.record(z.string(), z.string())).optional(),
+	overrides: z
+		.partialRecord(
+			z.enum(["light", "dark"]),
+			z.partialRecord(z.enum(themeTokenNames), z.string()),
+		)
+		.optional(),
 	defaultMode: z.enum(["light", "dark", "system"]).default("system"),
 });
+export type ThemeConfig = z.infer<typeof themeConfigSchema>;
+export type ThemeToken = (typeof themeTokenNames)[number];
 
 export const typographyConfigSchema = z.object({
 	display: z.string().min(1),
