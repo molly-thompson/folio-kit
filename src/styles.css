@@ -127,6 +127,24 @@
 	--chart-3: var(--folio-light-chart-3);
 	--chart-4: var(--folio-light-chart-4);
 	--chart-5: var(--folio-light-chart-5);
+	--sea-ink: var(--foreground);
+	--sea-ink-soft: var(--muted-foreground);
+	--lagoon: var(--primary);
+	--lagoon-deep: var(--interaction);
+	--palm: var(--accent);
+	--sand: var(--surface-muted);
+	--foam: var(--background);
+	--bg-base: var(--background);
+	--header-bg: var(--background);
+	--chip-bg: var(--card);
+	--chip-line: var(--border);
+	--line: var(--border);
+	--surface-strong: var(--card);
+	--inset-glint: transparent;
+	--kicker: var(--primary);
+	--link-bg-hover: var(--accent);
+	--hero-a: color-mix(in oklab, var(--primary) 36%, transparent);
+	--hero-b: color-mix(in oklab, var(--accent) 20%, transparent);
 }
 
 .dark .site-frame {
@@ -166,6 +184,24 @@
 	--chart-3: var(--folio-dark-chart-3);
 	--chart-4: var(--folio-dark-chart-4);
 	--chart-5: var(--folio-dark-chart-5);
+	--sea-ink: var(--foreground);
+	--sea-ink-soft: var(--muted-foreground);
+	--lagoon: var(--primary);
+	--lagoon-deep: var(--interaction);
+	--palm: var(--accent);
+	--sand: var(--surface-muted);
+	--foam: var(--background);
+	--bg-base: var(--background);
+	--header-bg: var(--background);
+	--chip-bg: var(--card);
+	--chip-line: var(--border);
+	--line: var(--border);
+	--surface-strong: var(--card);
+	--inset-glint: transparent;
+	--kicker: var(--primary);
+	--link-bg-hover: var(--accent);
+	--hero-a: color-mix(in oklab, var(--primary) 18%, transparent);
+	--hero-b: color-mix(in oklab, var(--accent) 12%, transparent);
 }
 
 @theme inline {

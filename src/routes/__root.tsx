@@ -50,9 +50,9 @@ function RootComponent() {
 				src="/theme-init.js"
 				data-default-mode={dataset.settings.theme.defaultMode}
 			/>
-			<Header defaultMode={dataset.settings.theme.defaultMode} />
+			<Header settings={dataset.settings} pages={dataset.pages} />
 			<Outlet />
-			<Footer />
+			<Footer settings={dataset.settings} socialLinks={dataset.socialLinks} />
 		</div>
 	);
 }
