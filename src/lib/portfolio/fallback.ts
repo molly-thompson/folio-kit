@@ -32,6 +32,7 @@ const fallback = {
 			body: "manrope",
 			monospace: "jetbrains-mono",
 			scale: "editorial",
+			fontFaces: [],
 		},
 		defaultSeo: {
 			title: "Northline Studio",
